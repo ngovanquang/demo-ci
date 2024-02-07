@@ -13,6 +13,12 @@ pipeline {
                 sh 'make'
             }
         }
+
+        stage('Run execute') {
+            steps {
+                sh './greeting Alice'
+            }
+        }
  
     }
     post {

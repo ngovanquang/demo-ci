@@ -2,10 +2,13 @@
 
 int main(int argc, char *argv[])
 {
-    printf("Enter your name: ");
-    char name[100];
-    scanf("%s\n", &name);
-    greeting("Quang");
+    if (argc < 2)
+    {
+        printf("Usage ./greeting <name>\n");
+        return -1;
+    }
+
+    greeting(argv[1]);
 
     return 0;
 }
