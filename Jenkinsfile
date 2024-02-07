@@ -2,12 +2,6 @@ pipeline {
 
     agent any
 
-    tools { 
-        
-    }
-    environment {
-       
-    }
     stages {
 
         stage('Build with Cmake') {
@@ -15,8 +9,8 @@ pipeline {
                 sh 'cmake --version'
                 sh 'mkdir build'
                 sh 'cd build'
-                cmake ..
-                make
+                sh 'cmake ..'
+                sh 'make'
             }
         }
  
