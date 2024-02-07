@@ -5,18 +5,26 @@ pipeline {
     stages {
 
         stage('Build with Cmake') {
+            
             steps {
                 sh 'cmake --version'
-                sh 'mkdir build'
-                sh 'cd build'
-                sh 'cmake ..'
-                sh 'make'
+                sh script:'''
+                    #!/bin/bash
+                    mkdir build
+                    cd ./build
+                    cmake ..
+                    make
+                '''
             }
         }
 
         stage('Run execute') {
             steps {
-                sh './greeting Alice'
+                sh script:'''
+                    #!/bin/bash
+                    cd ./build
+                    ./greeting Alice
+                '''
             }
         }
  

@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "greeting.h"
 
 void greeting(const char *name)
